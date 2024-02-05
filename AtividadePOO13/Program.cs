@@ -22,9 +22,9 @@ namespace AtividadePOO13
             Console.Write("Status (Pending Payment/Processing/Shipped/Delivered): ");
 
             String StatusAux = "";
-            bool teste = true;
+            bool StatusCorreto = true;
 
-            while (teste)
+            while (StatusCorreto)
             {
                 StatusAux = Console.ReadLine();
                 StatusAux.ToLower();
@@ -32,28 +32,28 @@ namespace AtividadePOO13
                 if (StatusAux == "pending payment" || StatusAux == "Pending Payment")
                 {
                     StatusAux = "Pending_Payment";
-                    teste = false;
+                    StatusCorreto = false;
                 }
                 else if (StatusAux == "processing" || StatusAux == "Processing")
                 {
                     StatusAux = "Processing";
-                    teste = false;
+                    StatusCorreto = false;
                 }
                 else if (StatusAux == "shipped" || StatusAux == "Shipped")
                 {
                     StatusAux = "Shipped";
-                    teste = false;
+                    StatusCorreto = false;
                 }
                 else if (StatusAux == "delivered" || StatusAux == "Delivered")
                 {
                     StatusAux = "Delivered";
-                    teste = false;
+                    StatusCorreto = false;
                 }
                 else
                 {                    
                     Console.WriteLine($"VocÊ digitou: {StatusAux}\n \rDigite uma opção válida.");
                     Console.Write("Status (Pending Payment/Processing/Shipped/Delivered): ");
-                    teste = true;
+                    StatusCorreto = true;
                 }
             }
             
