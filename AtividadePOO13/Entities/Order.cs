@@ -1,6 +1,7 @@
-﻿using AtividadePOO13.Enum;
+﻿using AtividadePOO13.Entities.Enum;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,11 @@ namespace AtividadePOO13.Entities
 
         public Order() { }
 
-        public Order(DateTime moment, OrderStatus status)
+        public Order(DateTime moment, OrderStatus status, Client client)
         {
             Moment = moment;
             Status = status;
+            Client = client;
         }
         public void AddItem(OrderItem Item)
         {
@@ -29,7 +31,7 @@ namespace AtividadePOO13.Entities
         {
             Items.Remove(Item);
         }
-        public double Total(OrderItem Item)
+        public double Total()
         {
             double Soma = 0;
 
@@ -38,6 +40,20 @@ namespace AtividadePOO13.Entities
                 Soma += item.SubTotal();
             }
             return Soma;
+        }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Momento do pedido: " + Moment.ToString("dd/MM/yyyy HH:mm:ss"));
+            sb.AppendLine("Status do pedido: " + Status);
+            sb.AppendLine("Cliente: " + Client);
+            sb.AppendLine("Itens no pedido:");
+            foreach (OrderItem item in Items)
+            {
+                sb.AppendLine(item.ToString());
+            }
+            sb.AppendLine("Valor total: $" + Total().ToString("F2"));
+            return sb.ToString();
         }
     }
 }

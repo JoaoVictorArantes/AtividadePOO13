@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AtividadePOO13.Enum
+namespace AtividadePOO13.Entities.Enum
 {
     enum OrderStatus : int
     {
